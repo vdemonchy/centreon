@@ -1,0 +1,97 @@
+// navbar & logo
+@media (max-width: 769px) {
+    ul.nav.navbar-nav {
+        li.nav-quick-search {
+            clear: left;
+        }
+    }
+}
+@media (max-width: 991px) {
+    @search-max-width: 250px;
+    @nav-brand-width: 100px;
+    div.navbar  {
+        a.navbar-brand {
+            width: @nav-brand-width;
+            background-size: @nav-brand-width auto !important;
+        }
+        ul.nav.navbar-nav {
+            li.nav-quick-search {
+                div.quick-search {
+                    max-width: @search-max-width;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    @search-max-width: 300px;
+    @nav-brand-width: 120px;
+    div.navbar  {
+        a.navbar-brand {
+            width: @nav-brand-width;
+            background-size: @nav-brand-width auto !important;
+        }
+        ul.nav.navbar-nav {
+            li.nav-quick-search {
+                div.quick-search {
+                    max-width: @search-max-width;
+                }
+            }
+        }
+    }
+}
+
+div.navbar  {
+
+    .box-shadow(0px 1px 5px 0px #656565);
+
+    a.navbar-brand {
+        height: @navbar-height;
+        margin: 0 0 0 5px;
+    }
+
+    ul.nav.navbar-nav {
+
+        padding: 0;
+        margin: 0 0 0 5px;
+
+        ul.dropdown-menu {
+
+            li {
+
+                &.divider {
+                    clear: both;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+
+                &.dropdown-header {
+                    padding: 8px 0 8px 10px;
+                    background-color: @orange;
+                    color: white;
+
+                    span.glyphicon {
+                        color: white;
+                    }
+                }
+                a {
+
+                    &:hover {
+                        cursor: pointer;
+                        color: @brand-primary;
+                    }
+
+                    &.active {
+                        color: @brand-primary;
+                    }
+                }
+
+                span.glyphicon {
+                    color: @silver;
+                }
+            }
+        }
+
+    }
+}

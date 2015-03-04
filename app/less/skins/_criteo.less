@@ -1,0 +1,45 @@
+/**
+    criteo layout
+*/
+
+// Configuring colors
+// https://gitorious.criteois.lan/vietnam-projects/ui-bootstrap/blobs/master/src/criteo-theme/main.less
+@brand-primary: @orange;
+@brand-success: #5cb85c;
+@brand-info: #5bc0de;
+@brand-warning: @sun-flower;
+@brand-danger: #d9534f;
+
+// navbar & logo
+div.navbar  {
+
+    a.navbar-brand {
+        .clearfix();
+        background: transparent url('../img/logo.png') no-repeat center center;
+    }
+
+    ul.nav {
+        > li {
+            > a {
+                color: @midnight-blue;
+            }
+            &:hover {
+                > a {
+                    color: @orange;
+                }
+            }
+            &.active {
+                > a {
+                    color: white;
+                    background-color: @orange;
+                }
+                &:hover {
+                    > a {
+                        color: white;
+                        background-color: @orange;
+                    }
+                }
+            }
+        }
+    }
+}

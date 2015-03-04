@@ -1,0 +1,10 @@
+web/bundles
+web/js
+web/css
+web/docs
+web/reports
+server/server.js
+*.tar.gz
+node_modules
+karma.config.js
+karma.config.js.map

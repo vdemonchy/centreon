@@ -1,0 +1,2 @@
+2015-03-03 Christophe Bragard <c.bragard@criteo.com>
+- project initialization

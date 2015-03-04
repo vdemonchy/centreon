@@ -1,0 +1,36 @@
+@import "web/bundles/bootstrap/less/bootstrap";
+/**
+    base definitions
+*/
+@import "_vars";
+@import "_mixins";
+@import "_nav";
+/**
+    custom definitions
+*/
+@import "panels/_dashboard.less";
+/**
+    custom definitions
+*/
+@import "skins/_criteo";
+
+body {
+    overflow-y: scroll;
+    padding-top: @navbar-height + 15;
+    padding-right: 15px;
+    padding-left: 15px;
+    //padding: @navbar-height 0 0 0;
+    color: @wet-asphalt;
+}
+
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+a.glyphicon {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
