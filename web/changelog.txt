@@ -1,2 +1,7 @@
+2015-03-05 Christophe Bragard <c.bragard@criteo.com>
+- add moment coffee / module
+- add minimum nav
+- add lang
+
 2015-03-03 Christophe Bragard <c.bragard@criteo.com>
 - project initialization

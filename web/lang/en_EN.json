@@ -6,5 +6,10 @@
     "centreon.dashboard.return" : "Return",
     "centreon.dashboard.duration" : "Duration",
     "centreon.dashboard.last-check" : "Last check",
-    "centreon.nav.options" : "Options"
+    "centreon.nav.options" : "Options",
+    "centreon.nav.travis" : "Travis builds",
+    "centreon.nav.changelog" : "Changelog",
+    "centreon.nav.coverage" : "Code coverage",
+    "centreon.nav.ui-doc" : "UI doc",
+    "centreon.footer.copyright" : "Centreon.UI, (c) Criteo 2015"
 }

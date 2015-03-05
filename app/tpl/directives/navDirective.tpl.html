@@ -9,9 +9,9 @@
 
         }">
             <a
-                href=""
-                i18n="">
-                <span class="glyphicon glyphicon-map-marker"></span>
+                href="dashboard"
+                i18n="centreon.dashboard.h2">
+                <span class="glyphicon glyphicon-dashboard"></span>
             </a>
         </li>
         <li class="dropdown" dropdown>
@@ -47,8 +47,55 @@
             </a>
             <ul class="dropdown-menu" role="menu">
                 <li>
-                    <a href="" i18n="">
-                        <span class="glyphicon glyphicon-list-alt"></span>
+                    <a
+                        href="changelog.txt"
+                        target="_blank"
+                        i18n="centreon.nav.changelog">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="/docs/index.html"
+                        target="_blank"
+                        i18n="centreon.nav.ui-doc">
+                        <span class="glyphicon glyphicon-wrench"></span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="/reports/index.html"
+                        target="_blank"
+                        i18n="centreon.nav.coverage">
+                        <span class="glyphicon glyphicon-wrench"></span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://travis-ci.org/cbragard/centreon"
+                        target="_blank"
+                        i18n="centreon.nav.travis">
+                        <span class="glyphicon glyphicon-wrench"></span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a ng-click="switchLang('lang/en_EN.json')">
+                        <span class="glyphicon glyphicon-refresh"></span>
+                        EN_en
+                    </a>
+                </li>
+                <li>
+                    <a ng-click="switchLang('lang/fr_FR.json')">
+                        <span class="glyphicon glyphicon-refresh"></span>
+                        fr_FR
+                    </a>
+                </li>
+                <li ng-show="isLoggedIn()">
+                    <a
+                        href="login?logout=true"
+                        i18n="centreon.nav.logout">
+                        <span class="glyphicon glyphicon-log-out"></span>
                     </a>
                 </li>
             </ul>
