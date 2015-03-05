@@ -6,10 +6,10 @@ define [], ->
     "use strict"
     ###*
     # @ngdoc service
-    # @name rackmonkey-services.i18nService
+    # @name app-services.i18nService
     # @description
     #
-    # Angular rackmonkey service.
+    # Angular app service.
     #
     # <h2>Settings</h2>
     # <pre>
@@ -31,7 +31,7 @@ define [], ->
             ###*
             # @ngdoc function
             # @name getLang
-            # @methodOf rackmonkey-services.i18nService
+            # @methodOf app-services.i18nService
             # @function
             # @description returns the defined lang for application.
             ###
@@ -41,7 +41,7 @@ define [], ->
             ###*
             # @ngdoc function
             # @name setlang
-            # @methodOf rackmonkey-services.i18nService
+            # @methodOf app-services.i18nService
             # @function
             # @description defines the default lang, available for application.
             ###
@@ -52,7 +52,7 @@ define [], ->
             ###*
             # @ngdoc function
             # @name getBundles
-            # @methodOf rackmonkey-services.i18nService
+            # @methodOf app-services.i18nService
             # @function
             # @description returns the bundles definitions for default lang.
             ###
@@ -62,7 +62,7 @@ define [], ->
             ###*
             # @ngdoc function
             # @name setBundles
-            # @methodOf rackmonkey-services.i18nService
+            # @methodOf app-services.i18nService
             # @function
             # @description defines the lang collections for application.
             ###
@@ -73,7 +73,7 @@ define [], ->
             ###*
             # @ngdoc function
             # @name isLabel
-            # @methodOf rackmonkey-services.i18nService
+            # @methodOf app-services.i18nService
             # @function
             # @description returns true or false, depending if the provided
             # key exist
@@ -87,7 +87,7 @@ define [], ->
             ###*
             # @ngdoc function
             # @name getLabel
-            # @methodOf rackmonkey-services.i18nService
+            # @methodOf app-services.i18nService
             # @function
             # @description returns the label value of the provided key.
             # if the key doesn't exist, then the key is returned
@@ -102,7 +102,7 @@ define [], ->
             ###*
             # @ngdoc function
             # @name getTextLabel
-            # @methodOf rackmonkey-services.i18nService
+            # @methodOf app-services.i18nService
             # @function
             # @description returns the label value of the provided key.
             # value can be text only, if html, a security exception
@@ -118,7 +118,7 @@ define [], ->
             ###*
             # @ngdoc function
             # @name getDynamicLabel
-            # @methodOf rackmonkey-services.i18nService
+            # @methodOf app-services.i18nService
             # @function
             # @description returns the label value, interpolated with the
             # provided datas.

@@ -6,10 +6,10 @@ define [], ->
     "use strict"
     ###*
     # @ngdoc controller
-    # @name rackmonkey-dashboard-controllers.dashboardCtrl
+    # @name app-dashboard-controllers.dashboardCtrl
     # @description
     #
-    # Angular rackmonkey controller.
+    # Angular app controller.
     #
     # <h2>Settings</h2>
     # <pre>
@@ -28,7 +28,6 @@ define [], ->
             $scope
             config
         ) ->
-            $log.debug "dashboardCtrl"
             $scope.status = []
             $http
                 .get config.API_STATUS_URL

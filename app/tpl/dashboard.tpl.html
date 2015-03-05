@@ -1,7 +1,10 @@
 <div nav-directive></div>
 <div class="panel panel-primary panel-dashboard">
     <div class="panel-heading">
-        <h2 class="panel-title">Dashboard</h2>
+        <h2
+            class="panel-title"
+            i18n="centreon.dashboard.h2">
+        </h2>
     </div>
     <div class="panel-body">
         <table
@@ -11,41 +14,45 @@
                     <input type="checkbox" />
                 </th>
                 <th>
-                    <span>Host</span>
+                    <span i18n="centreon.dashboard.host"></span>
                 </th>
                 <th>
-                    <span>Service</span>
+                    <span i18n="centreon.dashboard.service"></span>
                 </th>
                 <th>
-                    <span>return</span>
+                    <span i18n="centreon.dashboard.return"></span>
                 </th>
                 <th>
-                    <span>Duration</span>
+                    <span i18n="centreon.dashboard.duration"></span>
                 </th>
                 <th>
-                    <span>Last check</span>
+                    <span i18n="centreon.dashboard.last-check"></span>
                 </th>
             </thead>
-            <tbody ng-repeat="state in status">
+            <tbody ng-repeat="host in status">
                 <tr>
-                    <td  class="check">
+                    <td class="check">
                         <input type="checkbox" />
                     </td>
-                    <td colspan="5">
-                        <span class="glyphicon glyphicon-off"></span>
-                        {{ state.hostname }}
+                    <td
+                        class="host-status"
+                        colspan="5">
+                        <span class="glyphicon glyphicon-status {{ host.host_state }}">
+                        </span>
+                            {{ host.hostname }}
                     </td>
                 </tr>
-                <tr ng-repeat="service in state.services">
+                <tr ng-repeat="service in host.services">
                     <td class="check">
                         <input type="checkbox" />
                     </td>
                     <td>
                         &nbsp;
                     </td>
-                    <td>
-                        <span class="glyphicon glyphicon-off"></span>
-                        {{ service.service_name }}
+                    <td class="service-status">
+                        <span class="glyphicon glyphicon-status {{ service.service_state }}">
+                        </span>
+                            {{ service.service_name }}
                     </td>
                     <td class="output">
                         <span>

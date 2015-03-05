@@ -5,4 +5,5 @@ app - Criteo
 define [], ->
     "use strict"
 
+    DEFAULT_BUNDLES: 'lang/en_EN.json'
     API_STATUS_URL : 'mocks/status.json'

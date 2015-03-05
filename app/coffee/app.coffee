@@ -23,6 +23,7 @@ define [
     'constants'
     'values'
     'bootstrap-tpl'
+    'modules/i18n/i18n'
     'modules/dashboard/dashboard'
 ],(
     angular
@@ -50,6 +51,7 @@ define [
             'ui.bootstrap.tpls'
             'LocalStorageModule'
             'app-dashboard'
+            'app-i18n'
         ]
         .config routes
         .config [

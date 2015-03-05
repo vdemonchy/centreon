@@ -1,0 +1,10 @@
+{
+    "" : "",
+    "centreon.dashboard.h2" : "Dashboard",
+    "centreon.dashboard.host" : "Dashboard",
+    "centreon.dashboard.service" : "Service",
+    "centreon.dashboard.return" : "Return",
+    "centreon.dashboard.duration" : "Duration",
+    "centreon.dashboard.last-check" : "Last check",
+    "centreon.nav.options" : "Options"
+}

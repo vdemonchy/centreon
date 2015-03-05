@@ -6,10 +6,10 @@ define [], ->
     "use strict"
     ###*
     # @ngdoc service
-    # @name rackmonkey-factories.i18nFactory
+    # @name app-factories.i18nFactory
     # @description
     #
-    # Angular rackmonkey factory.
+    # Angular app factory.
     #
     # <h2>Settings</h2>
     # <pre>
@@ -34,7 +34,7 @@ define [], ->
             ###*
             # @ngdoc function
             # @name setBundles
-            # @methodOf rackmonkey-factories.i18nFactory
+            # @methodOf app-factories.i18nFactory
             # @function
             # @param {String} mylang the lang
             # @description loads the bundles definitions, according to the lang

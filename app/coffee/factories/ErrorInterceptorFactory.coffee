@@ -9,7 +9,7 @@ define [], ->
     # @name app-factories.errorInterceptorFactory
     # @description
     #
-    # Angular rackmonkey factory.
+    # Angular app factory.
     #
     # <h2>Settings</h2>
     # <pre>

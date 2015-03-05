@@ -45,7 +45,7 @@ define [], ->
                 ###*
                 # @ngdoc function
                 # @name isLoggedIn
-                # @methodOf rackmonkey-directives.navDirective
+                # @methodOf app-directives.navDirective
                 # @function
                 # @description toggle the connected boolean
                 ###
