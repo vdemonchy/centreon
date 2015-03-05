@@ -25,6 +25,7 @@ define [
     'bootstrap-tpl'
     'modules/i18n/i18n'
     'modules/dashboard/dashboard'
+    'modules/moment/moment'
 ],(
     angular
     routes
@@ -52,6 +53,7 @@ define [
             'LocalStorageModule'
             'app-dashboard'
             'app-i18n'
+            'angular-timeago'
         ]
         .config routes
         .config [
