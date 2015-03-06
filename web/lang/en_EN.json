@@ -11,6 +11,6 @@
     "centreon.nav.changelog" : "Changelog",
     "centreon.nav.coverage" : "Code coverage",
     "centreon.nav.ui-doc" : "UI doc",
-    "centreon.loading" : "Loading",
+    "centreon.loading" : "Loading...",
     "centreon.footer.copyright" : "Centreon.UI, (c) Criteo 2015"
 }
