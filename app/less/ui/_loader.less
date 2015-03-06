@@ -1,0 +1,22 @@
+div.loader {
+
+    position: fixed;
+    top: @navbar-height * 2;
+    left: 0;
+    width: 100%;
+    min-height: 280px;
+    background-image: url(../img/lizard.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 280px;
+    .opacity(.4);
+    z-index: 3;
+
+    span {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: #000;
+    }
+}

@@ -375,6 +375,193 @@
               "criticity": "minor"
         }
       ]
+    },
+    {
+      "hostname": "2c-59-e5-4a-82-14.storage.criteo.prod",
+      "host_state": "UP",
+      "services" : [
+        {
+          "service_name": "hardware_hp",
+          "service_state": "OK",
+          "status": "HARD",
+          "output": "OK - System: 'proliant dl360e gen8', SN: 'CZ3339NSXJ', ROM: 'P73 07012013', hardware working fine, da: 1 logical drives, 4 physical drives\n",
+          "attempts": "1\/2",
+          "last_hard_state": "2014-09-22 09:39:46",
+          "last_check": "2015-03-04 16:31:43",
+          "poller": "NL_AM5_2",
+          "acknowledge": "no",
+          "downtime": "no",
+          "notes_url": "https:\/\/confluence.criteois.com\/pages\/viewpage.action?pageId=6572217",
+          "criticity": "minor"
+          },
+          {
+              "service_name": "ping",
+              "service_state": "OK",
+              "status": "HARD",
+              "output": "OK - 10.22.150.63: rta 0.154ms, lost 0%\n",
+              "attempts": "1\/3",
+              "last_hard_state": "2014-11-12 18:19:41",
+              "last_check": "2015-03-04 17:07:24",
+              "poller": "NL_AM5_2",
+              "acknowledge": "no",
+              "downtime": "no",
+              "notes_url": "https:\/\/confluence.criteois.com\/display\/PROD\/Alert%3A+check_ping",
+              "criticity": "minor"
+          },
+          {
+          "service_name": "dhcp_lease",
+          "service_state": "OK",
+          "status": "HARD",
+          "output": "OK: [O] Lease expires in 27 days 15 hours 51 minutes 16 seconds from now for ip-adress=10.22.150.63 --\n",
+          "attempts": "1\/3",
+          "last_hard_state": "2014-11-14 15:57:22",
+          "last_check": "2015-03-04 17:11:52",
+          "poller": "NL_AM5_2",
+          "acknowledge": "no",
+          "downtime": "no",
+          "notes_url": "https:\/\/confluence.criteois.com\/display\/SRE\/DHCP+Lease+Check+Documentation",
+          "criticity": "blocker"
+          },
+          {
+              "service_name": "chef_status",
+              "service_state": "OK",
+              "status": "HARD",
+              "output": "OK: Last checkin 54 seconds 21 minutes ago\n",
+              "attempts": "1\/3",
+              "last_hard_state": "2014-11-12 17:25:55",
+              "last_check": "2015-03-04 17:13:54",
+              "poller": "NL_AM5_2",
+              "acknowledge": "no",
+              "downtime": "no",
+              "notes_url": "https:\/\/confluence.criteois.com\/display\/SRE\/Chef+Status+Check+Documentation",
+              "criticity": "minor"
+          }
+      ]
+    },
+    {
+      "hostname": "2c-59-e5-4a-87-04.storage.criteo.prod",
+      "host_state": "UP",
+      "services" : [
+        {
+          "service_name": "hardware_hp",
+          "service_state": "OK",
+          "status": "HARD",
+          "output": "OK - System: 'proliant dl360e gen8', SN: 'CZ3339NSN2', ROM: 'P73 07012013', hardware working fine, da: 1 logical drives, 4 physical drives\n",
+          "attempts": "1\/2",
+          "last_hard_state": "2014-12-05 18:45:12",
+          "last_check": "2015-03-04 17:03:45",
+          "poller": "FR_EQX_2",
+          "acknowledge": "no",
+          "downtime": "no",
+          "notes_url": "https:\/\/confluence.criteois.com\/pages\/viewpage.action?pageId=6572217",
+          "criticity": "minor"
+        },
+        {
+          "service_name": "ping",
+          "service_state": "OK",
+          "status": "HARD",
+          "output": "OK - 10.20.150.66: rta 0.155ms, lost 0%\n",
+          "attempts": "1\/3",
+          "last_hard_state": "2015-01-20 16:15:57",
+          "last_check": "2015-03-04 17:08:24",
+          "poller": "FR_EQX_2",
+          "acknowledge": "no",
+          "downtime": "no",
+          "notes_url": "https:\/\/confluence.criteois.com\/display\/PROD\/Alert%3A+check_ping",
+          "criticity": "minor"
+        },
+        {
+          "service_name": "dhcp_lease",
+          "service_state": "OK",
+          "status": "HARD",
+          "output": "OK: [O] Lease expires in 27 days 15 hours 51 minutes 5 seconds from now for ip-adress=10.20.150.66 --\n",
+          "attempts": "1\/3",
+          "last_hard_state": "2014-12-08 11:18:03",
+          "last_check": "2015-03-04 17:13:16",
+          "poller": "FR_EQX_2",
+          "acknowledge": "no",
+          "downtime": "no",
+          "notes_url": "https:\/\/confluence.criteois.com\/display\/SRE\/DHCP+Lease+Check+Documentation",
+          "criticity": "blocker"
+          },
+          {
+              "service_name": "chef_status",
+              "service_state": "OK",
+              "status": "HARD",
+              "output": "OK: Last checkin 40 seconds 19 minutes ago\n",
+              "attempts": "1\/3",
+              "last_hard_state": "2015-01-21 12:51:20",
+              "last_check": "2015-03-04 17:11:25",
+              "poller": "FR_EQX_2",
+              "acknowledge": "no",
+              "downtime": "no",
+              "notes_url": "https:\/\/confluence.criteois.com\/display\/SRE\/Chef+Status+Check+Documentation",
+              "criticity": "minor"
+          }
+      ]
+    },
+    {
+      "hostname": "2c-59-e5-4a-8b-90.storage.criteo.prod",
+      "host_state": "UP",
+      "services" : [
+        {
+          "service_name": "hardware_hp",
+          "service_state": "OK",
+          "status": "HARD",
+          "output": "OK - System: 'proliant dl360e gen8', SN: 'CZ3339NSV3', ROM: 'P73 07012013', hardware working fine, da: 2 logical drives, 4 physical drives\n",
+          "attempts": "1\/2",
+          "last_hard_state": "2014-09-22 09:35:53",
+          "last_check": "2015-03-04 16:25:32",
+          "poller": "NL_AM5_2",
+          "acknowledge": "no",
+          "downtime": "no",
+          "notes_url": "https:\/\/confluence.criteois.com\/pages\/viewpage.action?pageId=6572217",
+          "criticity": "minor"
+          },
+          {
+          "service_name": "ping",
+          "service_state": "OK",
+          "status": "HARD",
+          "output": "OK - 10.22.150.7: rta 1.876ms, lost 0%\n",
+          "attempts": "1\/3",
+          "last_hard_state": "2015-03-02 09:12:46",
+          "last_check": "2015-03-04 17:13:05",
+          "poller": "NL_AM5_2",
+          "acknowledge": "no",
+          "downtime": "no",
+          "notes_url": "https:\/\/confluence.criteois.com\/display\/PROD\/Alert%3A+check_ping",
+          "criticity": "minor"
+          },
+          {
+          "service_name": "dhcp_lease",
+          "service_state": "OK",
+          "status": "HARD",
+          "output": "OK: [O] Lease expires in 27 days 15 hours 49 minutes 23 seconds from now for ip-adress=10.22.150.7 --\n",
+          "attempts": "1\/3",
+          "last_hard_state": "2014-11-14 15:59:03",
+          "last_check": "2015-03-04 17:13:45",
+          "poller": "NL_AM5_2",
+          "acknowledge": "no",
+          "downtime": "no",
+          "notes_url": "https:\/\/confluence.criteois.com\/display\/SRE\/DHCP+Lease+Check+Documentation",
+          "criticity": "blocker"
+          },
+          {
+          "service_name": "chef_status",
+          "service_state": "OK",
+          "status": "HARD",
+          "output": "OK: Last checkin 2 seconds 25 minutes ago\n",
+          "attempts": "1\/3",
+          "last_hard_state": "2014-11-12 16:58:58",
+          "last_check": "2015-03-04 17:13:54",
+          "poller": "NL_AM5_2",
+          "acknowledge": "no",
+          "downtime": "no",
+          "notes_url": "https:\/\/confluence.criteois.com\/display\/SRE\/Chef+Status+Check+Documentation",
+          "criticity": "minor"
+          }
+      ]
     }
+
   ]
 ]

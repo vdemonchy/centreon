@@ -1,5 +1,16 @@
 <div nav-directive></div>
-<div class="panel panel-primary panel-dashboard">
+
+<!-- devices loading -->
+<div
+    class="loader col-xs-12"
+    ng-show="status == undefined">
+    <span i18n="centreon.loading"></span>
+</div>
+
+<!-- status -->
+<div
+    class="panel panel-primary panel-dashboard"
+    ng-show="status.length > 0">
     <div class="panel-heading">
         <h2
             class="panel-title"
@@ -7,6 +18,26 @@
         </h2>
     </div>
     <div class="panel-body">
+        <!-- pagination -->
+        <div class="pagination col-sm-6">
+            <div
+                pagination
+                ng-model="pageNumber"
+                ng-change="pager($event)"
+                max-size="10"
+                rotate="false"
+                direction-links="false"
+                items-per-page="itemsPerPage"
+                total-items="all.length"
+                class="pagination-md pull-right">
+            </div>
+            <select
+                class="form-control"
+                ng-model="itemsPerPage"
+                ng-change="updatePagination($event)"
+                ng-options="max for max in [6,50,100,150,200,250]">
+            </select>
+        </div>
         <table
             class="table table-bordered table-striped table-hover">
             <thead>
@@ -68,6 +99,26 @@
                 </tr>
             </tbody>
         </table>
+        <!-- pagination -->
+        <div class="pagination col-sm-6">
+            <div
+                pagination
+                ng-model="pageNumber"
+                ng-change="pager($event)"
+                max-size="10"
+                rotate="false"
+                direction-links="false"
+                items-per-page="itemsPerPage"
+                total-items="all.length"
+                class="pagination-md pull-right">
+            </div>
+            <select
+                class="form-control"
+                ng-model="itemsPerPage"
+                ng-change="updatePagination($event)"
+                ng-options="max for max in [6,50,100,150,200,250]">
+            </select>
+        </div>
     </div>
     <div
         class="panel-footer text-right"

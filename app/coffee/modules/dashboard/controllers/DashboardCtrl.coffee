@@ -28,10 +28,29 @@ define [], ->
             $scope
             config
         ) ->
-            $scope.status = []
+            $scope.status = undefined
+            $scope.itemsPerPage = 6
+            $scope.pageNumber = 1
+
             $http
                 .get config.API_STATUS_URL
                 .then (response) ->
                     unless response.status is not 200
-                        $scope.status =  response.data[1]
+                        $scope.all = response.data[1]
+                        $scope.status =  angular.copy $scope.all
+
+            ###*
+            # @ngdoc function
+            # @name pager
+            # @methodOf app-dashboard-controllers.dashboardCtrl
+            # @function
+            # @param {Object} $event the event
+            # @description TODO
+            ###
+            $scope.pager = ($event) ->
+                all = angular.copy $scope.all
+                newpage = $scope.pageNumber - 1
+                from = newpage * $scope.itemsPerPage
+                sliced = all.slice from, $scope.all.length
+                $scope.status = sliced
     ]
