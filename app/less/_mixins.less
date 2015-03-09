@@ -1,5 +1,8 @@
 /**
     mixins definitions
+    TODO:
+    background color yellow ( if acknowledge not YES and status not up or not ok )
+    background color purple ( if downtime YES )
 */
 .host-status() {
     span.glyphicon.glyphicon-status {
@@ -12,7 +15,8 @@
             background-color: @green-sea;
         }
         &.UNREACHABLE {
-            background-color: @brand-warning;
+            //background-color: @brand-warning;
+            background-color: blue;
         }
         &.DOWN {
             background-color: @brand-danger;
@@ -37,7 +41,8 @@
             background-color: @brand-danger;
         }
         &.UNKNOWN {
-            background-color: @brand-warning;
+            //background-color: @brand-warning;
+            background-color: grey;
         }
     }
 }
