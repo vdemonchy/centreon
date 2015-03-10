@@ -1,0 +1,84 @@
+<div
+    class="dropdown"
+    dropdown
+    ng-click="$event.stopPropagation();">
+    <!-- dropdown filter by building -->
+    <div
+        class="btn btn-default dropdown-toggle form-control"
+        dropdown-toggle
+        type="button">
+        {{ ddTitle }}
+        <span class="caret"></span>
+        <span class="glyph-filter">
+            <span
+                class="glyphicon glyphicon-filter"
+                ng-show="dropdownFilterFilter.length > 0 || items.length < selectSet[ddType].length ">
+            </span>
+        </span>
+    </div>
+    <ul
+        class="dropdown-menu"
+        ng-switch="ddFilter">
+        <li>
+            <a
+                ng-click="toggleSort($event, ddSort);"
+                i18n="rackmonkey.inverse-results">
+                <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+            </a>
+        </li>
+        <li>
+            <input
+                class="form-control"
+                ng-model="dropdownFilterFilter"
+                ng-change="resetdropdownFilter($event)"
+                ng-click="$event.preventDefault();"
+                placeholder=" {{ i18nService.getLabel('rackmonkey.search.keyword') }}"
+                type="text" />
+        </li>
+        <li>
+            <input
+                id="{{ddType}}All"
+                type="checkbox"
+                ng-click="toggleAllItems($event); dropdownFilterFilter = undefined;"
+                ng-checked="items.length == selectSet[ddType].length" />
+
+            <label
+                for="{{ddType}}All"
+                i18n="rackmonkey.all">
+            </label>
+        </li>
+        <!-- no ddFilter-->
+        <li
+            ng-repeat="item in selectSet[ddType] | filter: dropdownFilterFilter | limitTo: 50"
+            ng-switch-when="undefined">
+                <input
+                    id="{{ ddType }}{{ item.id }}"
+                    type="checkbox"
+                    ng-click="itemClick($event, item.id);"
+                    ng-checked="items.indexOf(item.id) > -1" />
+                <label
+                    for="{{ ddType }}{{ item.id }}">
+                    {{ item[ddField] }}
+                </label>
+        </li>
+        <!-- ddFilter-->
+        <li
+            ng-repeat="item in selectSet[ddType] | filter: dropdownFilterFilter | limitTo: 50"
+            ng-if="isFilterBy(item) == true"
+            ng-switch-default>
+
+                <input
+                    id="{{ ddType }}{{ item.id }}"
+                    type="checkbox"
+                    ng-click="itemClick($event, item.id);"
+                    ng-checked="items.indexOf(item.id) > -1" />
+                <label
+                    for="{{ ddType }}{{ item.id }}">
+                    {{ item.name }}
+                </label>
+        </li>
+        <li class="legend" ng-if="selectSet[ddType].length > 50">
+            <span i18n="rackmonkey.dropdown-hided-items-count"></span>
+        </li>
+    </ul>
+</div>

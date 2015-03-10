@@ -1,29 +1,84 @@
 div.panel.panel-dashboard {
     table {
         thead {
-            th.check {
-                width: 40px;
-                text-align: center;
+            th {
+                border-color: white;
+                color: @asbestos;
+
+                &.check {
+                    width: 40px;
+                    text-align: center;
+                }
+                &.acknowledge,
+                &.downtime,
+                &.attempts,
+                &.notes-url,
+                &.service-state,
+                &.host-state {
+                    text-align: center;
+                }
             }
         }
 
         tbody {
-            td.check {
-                width: 40px;
-                text-align: center;
-            }
+            border-color: white;
+            background-color: lighten(@clouds, 2%);
 
-            td.host-status {
-                .host-status();
+            &.ack {
+                background-color: lighten(@sun-flower, 30%);
             }
-
-            td.service-status {
-                .service-status();
+            &.down {
+                background-color: lighten(@amethyst, 30%);
             }
+            tr {
+                border: none;
 
-            td.output {
-                span {
-                    font-size: .8em;
+                td {
+                    border: none;
+                    font-size: 14px;
+
+                    span.label.label-host-state {
+                        .host-status();
+                    }
+                    span.label.label-service-state {
+                        .service-status();
+                    }
+
+                    &.check {
+                        width: 40px;
+                        text-align: center;
+                    }
+
+                    &.acknowledge {
+                        span.glyphicon {
+                            font-size: 20px;
+                            color: darken(@green-sea, 10%);
+                        }
+                    }
+                    &.downtime {
+                        span.glyphicon {
+                            font-size: 20px;
+                            color: darken(@brand-danger, 10%);
+                        }
+                    }
+
+                    &.notes-url {
+                        a {
+                            color : black;
+                        }
+                    }
+                    &.output {
+                        font-size: 12px;
+                    }
+
+                    &.acknowledge,
+                    &.downtime,
+                    &.attempts,
+                    &.notes-url,
+                    &.service-state,
+                    &.host-state {
+                        text-align: center;
+                    }
                 }
             }
         }

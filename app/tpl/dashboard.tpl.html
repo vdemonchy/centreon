@@ -1,16 +1,14 @@
 <div nav-directive></div>
-
 <!-- devices loading -->
 <div
     class="loader col-xs-12"
     ng-show="status == undefined">
     <span i18n="centreon.loading"></span>
 </div>
-
 <!-- status -->
 <div
     class="panel panel-primary panel-dashboard"
-    ng-show="status.length > 0">
+    ng-show="status != undefined">
     <div class="panel-heading">
         <h2
             class="panel-title"
@@ -35,66 +33,257 @@
                 class="form-control"
                 ng-model="itemsPerPage"
                 ng-change="updatePagination($event)"
-                ng-options="max for max in [6,50,100,150,200,250]">
+                ng-options="max for max in [25,50,100,150,200,250]">
             </select>
         </div>
         <table
-            class="table table-bordered table-striped table-hover">
+            class="table">
             <thead>
                 <th class="check">
                     <input type="checkbox" />
                 </th>
-                <th>
-                    <span i18n="centreon.dashboard.host"></span>
+                <th class="host">
+                    <!-- host state dropdown -->
+                    <div dropdown class="dropdown">
+                      <button
+                        class="btn btn-default dropdown-toggle"
+                        type="button"
+                        id="dropdownMenu1"
+                        data-toggle="dropdown"
+                        dropdown-toggle
+                        aria-expanded="true"
+                        i18n="centreon.dashboard.host-state">
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Up
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Down
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Unreachable
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Pending
+                            </a>
+                        </li>
+                      </ul>
+                    </div>
                 </th>
                 <th>
-                    <span i18n="centreon.dashboard.service"></span>
+                    <input
+                        class="form-control"
+                        type="text"
+                        i18n i18n-placeholder="centreon.dashboard.host" />
                 </th>
-                <th>
-                    <span i18n="centreon.dashboard.return"></span>
+                <th class="service-state">
+                    <!-- service state dropdown -->
+                    <div dropdown class="dropdown">
+                      <button
+                        class="btn btn-default dropdown-toggle"
+                        type="button"
+                        id="dropdownMenu1"
+                        data-toggle="dropdown"
+                        dropdown-toggle
+                        aria-expanded="true"
+                        i18n="centreon.dashboard.service-state">
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Ok
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Warning
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Critical
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Unknown
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Pending
+                            </a>
+                        </li>
+                      </ul>
+                    </div>
                 </th>
-                <th>
-                    <span i18n="centreon.dashboard.duration"></span>
+                <th class="service-name">
+                    <input
+                        class="form-control"
+                        type="text"
+                        i18n i18n-placeholder="centreon.dashboard.service" />
                 </th>
-                <th>
-                    <span i18n="centreon.dashboard.last-check"></span>
+                <th class="acknowledge">
+                    &nbsp;
+                </th>
+                <th class="downtime">
+                    &nbsp;
+                </th>
+                <th class="criticity">
+                    <!-- service state dropdown -->
+                    <div dropdown class="dropdown">
+                      <button
+                        class="btn btn-default dropdown-toggle"
+                        type="button"
+                        id="dropdownMenu1"
+                        data-toggle="dropdown"
+                        dropdown-toggle
+                        aria-expanded="true"
+                        i18n="centreon.dashboard.criticity">
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Blocker
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">
+                                <input type="checkbox" />
+                                Minor
+                            </a>
+                        </li>
+                      </ul>
+                    </div>
+                </th>
+                <th class="notes-url">
+                    <span i18n="centreon.dashboard.notes_url">
+                    </span>
+                </th>
+                <th class="attempts">
+                    <span i18n="centreon.dashboard.attempts">
+                    </span>
+                </th>
+                <th class="poller">
+                    <span i18n="centreon.dashboard.poller">
+                    </span>
+                </th>
+                <th class="last-checks">
+                    <span i18n="centreon.dashboard.last_check">
+                    </span>
+                </th>
+                <th class="last-hard-state">
+                    <span i18n="centreon.dashboard.last_hard_state">
+                    </span>
                 </th>
             </thead>
-            <tbody ng-repeat="host in status">
+            <tbody
+                ng-repeat="state in status  | limitTo: itemsPerPage track by $index"
+                ng-class="{
+                    'ack'  : state.acknowledge == 'yes',
+                    'down' : state.downtime == 'yes'
+                }">
                 <tr>
                     <td class="check">
                         <input type="checkbox" />
                     </td>
                     <td
-                        class="host-status"
-                        colspan="5">
-                        <span class="glyphicon glyphicon-status {{ host.host_state }}">
+                        class="host-state">
+                        <span
+                            ng-if="state.hostname != status[$index-1].hostname"
+                            class="label label-host-state {{ state.host_state }}">
+                            &nbsp;
                         </span>
-                            {{ host.hostname }}
+                    </td>
+                    <td class="host">
+                        <span ng-if="state.hostname != status[$index-1].hostname">
+                            {{ state.hostname }}
+                        </span>
+                    </td>
+                    <td
+                        class="service-state">
+                        <span class="label label-service-state {{ state.service_state }}">
+                            &nbsp;
+                        </span>
+                    </td>
+                    <td
+                        class="service-name">
+                        {{ state.service_name }}
+                    </td>
+                    <td
+                        class="acknowledge">
+                        <span
+                            ng-if="state.acknowledge =='yes'"
+                            class="glyphicon glyphicon glyphicon-ok-circle">
+                        </span>
+                    </td>
+                    <td
+                        class="downtime">
+                        <span
+                            ng-if="state.downtime =='yes'"
+                            class="glyphicon glyphicon-exclamation-sign">
+                        </span>
+                    </td>
+                    <td
+                        class="criticity">
+                        {{ state.criticity }}
+                    </td>
+                    <td
+                        class="notes-url">
+                        <a
+                            ng-if="state.notes_url.length > 0"
+                            href="{{ state.notes_url }}"
+                            target="_blank"
+                            class="glyphicon glyphicon-link">
+                        </a>
+                    </td>
+                    <td
+                        class="attempts">
+                        {{ state.attempts }}
+                        {{ state.status | limitTo:1 }}
+                    </td>
+                    <td
+                        class="poller">
+                        {{ state.poller }}
+                    </td>
+                    <td
+                        class="last-check">
+                        {{ state.last_check | timeAgo }}
+                    </td>
+                    <td
+                        class="last-hard-state">
+                        {{ state.last_hard_state | timeAgo }}
                     </td>
                 </tr>
-                <tr ng-repeat="service in host.services">
-                    <td class="check">
-                        <input type="checkbox" />
-                    </td>
-                    <td>
+                <tr>
+                    <td colspan="4">
                         &nbsp;
                     </td>
-                    <td class="service-status">
-                        <span class="glyphicon glyphicon-status {{ service.service_state }}">
-                        </span>
-                            {{ service.service_name }}
-                    </td>
-                    <td class="output">
-                        <span>
-                            {{ service.output }}
-                        </span>
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-                        {{ service.last_check | timeAgo }}
+                    <td
+                        class="output"
+                        colspan="10">
+                        {{ state.output }}
                     </td>
                 </tr>
             </tbody>
@@ -116,7 +305,7 @@
                 class="form-control"
                 ng-model="itemsPerPage"
                 ng-change="updatePagination($event)"
-                ng-options="max for max in [6,50,100,150,200,250]">
+                ng-options="max for max in [25,50,100,150,200,250]">
             </select>
         </div>
     </div>

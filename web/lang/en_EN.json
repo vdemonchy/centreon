@@ -1,16 +1,29 @@
 {
     "" : "",
     "centreon.dashboard.h2" : "Dashboard",
-    "centreon.dashboard.host" : "Dashboard",
+
+    "centreon.dashboard.host" : "Hostname",
+    "centreon.dashboard.host-state" : "State",
+    "centreon.dashboard.criticity" : "Criticity",
     "centreon.dashboard.service" : "Service",
-    "centreon.dashboard.return" : "Return",
-    "centreon.dashboard.duration" : "Duration",
-    "centreon.dashboard.last-check" : "Last check",
+    "centreon.dashboard.service-name" : "Service name",
+    "centreon.dashboard.service-state" : "State",
+    "centreon.dashboard.acknowledge" : "Acknowledge",
+    "centreon.dashboard.downtime" : "Downtime",
+    "centreon.dashboard.notes_url" : "Note",
+    "centreon.dashboard.attempts" : "Attempts",
+    "centreon.dashboard.status" : "Status",
+    "centreon.dashboard.poller" : "Poller",
+    "centreon.dashboard.last_check" : "Last check",
+    "centreon.dashboard.last_hard_state" : "Last hard state",
+    "centreon.dashboard.output" : "Output",
+
     "centreon.nav.options" : "Options",
     "centreon.nav.travis" : "Travis builds",
     "centreon.nav.changelog" : "Changelog",
     "centreon.nav.coverage" : "Code coverage",
     "centreon.nav.ui-doc" : "UI doc",
+    "centreon.nav.ui-logout" : "logout",
     "centreon.loading" : "Loading...",
     "centreon.footer.copyright" : "Centreon.UI, (c) Criteo 2015"
 }

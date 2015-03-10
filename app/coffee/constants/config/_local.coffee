@@ -6,4 +6,4 @@ define [], ->
     "use strict"
 
     DEFAULT_BUNDLES: 'lang/en_EN.json'
-    API_STATUS_URL : 'mocks/status.json'
+    API_STATUS_URL : 'mocks/all_status.json'

@@ -75,6 +75,7 @@ define [], ->
                 setElement "alt", tAttrs.i18nAlt if tAttrs.i18nAlt
                 setElement "name", tAttrs.i18nName if tAttrs.i18nName
                 setElement "href", tAttrs.i18nHref if tAttrs.i18nHref
+                setElement "placeholder", tAttrs.i18nPlaceholder if tAttrs.i18nPlaceholder
                 translate tAttrs, tElement if tAttrs.i18n
 
                 pre: preLink = (scope, iElement, iAttrs, controller) ->

@@ -1,49 +1,50 @@
-/**
-    mixins definitions
-    TODO:
-    background color yellow ( if acknowledge not YES and status not up or not ok )
-    background color purple ( if downtime YES )
-*/
-.host-status() {
-    span.glyphicon.glyphicon-status {
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        .radius(15px);
 
-        &.UP {
-            background-color: @green-sea;
-        }
-        &.UNREACHABLE {
-            //background-color: @brand-warning;
-            background-color: blue;
-        }
-        &.DOWN {
-            background-color: @brand-danger;
-        }
+/**
+    host status
+*/
+.host-status(@size: 20px) {
+    display: block;
+    width: @size;
+    height: @size;
+    margin: 0 auto 0 auto;
+    .radius(@size);
+    &.UP {
+        .gradient(lighten(@green-sea, 20%), @green-sea);
+    }
+    &.UNREACHABLE {
+        .gradient(lighten(@peter-river, 20%), @peter-river);
+    }
+    &.PENDING {
+        .gradient(lighten(@belize-hole, 20%), @belize-hole);
+    }
+    &.DOWN {
+        .gradient(lighten(@brand-danger, 20%), @brand-danger);
     }
 }
 
-.service-status {
-    span.glyphicon.glyphicon-status {
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        .radius(15px);
-
-        &.OK {
-            background-color: @green-sea;
-        }
-        &.WARNING {
-            background-color: @orange;
-        }
-        &.CRITICAL {
-            background-color: @brand-danger;
-        }
-        &.UNKNOWN {
-            //background-color: @brand-warning;
-            background-color: grey;
-        }
+/**
+    service status
+*/
+.service-status(@size: 20px) {
+    display: block;
+    width: @size;
+    height: @size;
+    margin: 0 auto 0 auto;
+    .radius(@size);
+    &.OK {
+        .gradient(lighten(@green-sea, 20%), @green-sea);
+    }
+    &.WARNING {
+        .gradient(lighten(@orange, 20%), @orange);
+    }
+    &.CRITICAL {
+        .gradient(lighten(@brand-danger, 20%), @brand-danger);
+    }
+    &.UNKNOWN {
+        .gradient(lighten(@clouds, 20%), @clouds);
+    }
+    &.PENDING {
+        .gradient(lighten(@belize-hole, 20%), @belize-hole);
     }
 }
 /**
