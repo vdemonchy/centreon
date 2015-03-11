@@ -16,6 +16,140 @@
         </h2>
     </div>
     <div class="panel-body">
+
+        <!-- search form -->
+        <div class="form-search">
+
+            <!-- host state dropdown -->
+            <div
+                ng-click="$event.stopPropagation()"
+                dropdown class="dropdown">
+
+              <button
+                class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                dropdown-toggle
+                aria-expanded="true"
+                i18n="centreon.dashboard.host-state">
+                <span class="caret"></span>
+              </button>
+
+              <ul
+                class="dropdown-menu"
+                role="menu"
+                aria-labelledby="dropdownMenu1">
+
+                <li ng-repeat="state in states.host" role="presentation">
+                    <a role="menuitem" tabindex="1" href>
+                        <input
+                            ng-checked="filters.host.indexOf(state.id) > -1"
+                            type="checkbox" />
+                                {{ state.state }}
+                    </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- host -->
+            <input
+                class="form-control"
+                type="text"
+                i18n i18n-placeholder="centreon.dashboard.host" />
+
+            <!-- service state dropdown -->
+            <div dropdown class="dropdown">
+
+              <button
+                class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                dropdown-toggle
+                aria-expanded="true"
+                i18n="centreon.dashboard.service-state">
+                <span class="caret"></span>
+              </button>
+
+              <ul
+                class="dropdown-menu"
+                role="menu"
+                aria-labelledby="dropdownMenu1">
+
+                <li role="presentation">
+                    <a role="menuitem" tabindex="1" href>
+                        <input type="checkbox" />
+                        Ok
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="2" href>
+                        <input type="checkbox" />
+                        Warning
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="3" href>
+                        <input type="checkbox" />
+                        Critical
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="4" href>
+                        <input type="checkbox" />
+                        Unknown
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="5" href>
+                        <input type="checkbox" />
+                        Pending
+                    </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- service name -->
+            <input
+                class="form-control"
+                type="text"
+                i18n i18n-placeholder="centreon.dashboard.service" />
+
+            <!-- criticity -->
+            <div dropdown class="dropdown">
+              <button
+                class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                dropdown-toggle
+                aria-expanded="true"
+                i18n="centreon.dashboard.criticity">
+                <span class="caret"></span>
+              </button>
+
+              <ul
+                class="dropdown-menu"
+                role="menu"
+                aria-labelledby="dropdownMenu1">
+
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">
+                        <input type="checkbox" />
+                        Blocker
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#">
+                        <input type="checkbox" />
+                        Minor
+                    </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+
         <!-- pagination -->
         <div class="pagination col-sm-6">
             <div
@@ -36,146 +170,33 @@
                 ng-options="max for max in [25,50,100,150,200,250]">
             </select>
         </div>
+
         <table
             class="table">
             <thead>
                 <th class="check">
                     <input type="checkbox" />
                 </th>
-                <th class="host">
-                    <!-- host state dropdown -->
-                    <div dropdown class="dropdown">
-                      <button
-                        class="btn btn-default dropdown-toggle"
-                        type="button"
-                        id="dropdownMenu1"
-                        data-toggle="dropdown"
-                        dropdown-toggle
-                        aria-expanded="true"
-                        i18n="centreon.dashboard.host-state">
-                        <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Up
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Down
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Unreachable
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Pending
-                            </a>
-                        </li>
-                      </ul>
-                    </div>
+                <th class="host-state">
+                    <span i18n="centreon.dashboard.host-state"></span>
                 </th>
-                <th>
-                    <input
-                        class="form-control"
-                        type="text"
-                        i18n i18n-placeholder="centreon.dashboard.host" />
+                <th class="host">
+                    <span i18n="centreon.dashboard.host"></span>
+                </th>
+                <th class="criticity">
+                    <span i18n="centreon.dashboard.criticity"></span>
                 </th>
                 <th class="service-state">
-                    <!-- service state dropdown -->
-                    <div dropdown class="dropdown">
-                      <button
-                        class="btn btn-default dropdown-toggle"
-                        type="button"
-                        id="dropdownMenu1"
-                        data-toggle="dropdown"
-                        dropdown-toggle
-                        aria-expanded="true"
-                        i18n="centreon.dashboard.service-state">
-                        <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Ok
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Warning
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Critical
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Unknown
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Pending
-                            </a>
-                        </li>
-                      </ul>
-                    </div>
+                    <span i18n="centreon.dashboard.service-state"></span>
                 </th>
                 <th class="service-name">
-                    <input
-                        class="form-control"
-                        type="text"
-                        i18n i18n-placeholder="centreon.dashboard.service" />
+                    <span i18n="centreon.dashboard.service-name"></span>
                 </th>
                 <th class="acknowledge">
                     &nbsp;
                 </th>
                 <th class="downtime">
                     &nbsp;
-                </th>
-                <th class="criticity">
-                    <!-- service state dropdown -->
-                    <div dropdown class="dropdown">
-                      <button
-                        class="btn btn-default dropdown-toggle"
-                        type="button"
-                        id="dropdownMenu1"
-                        data-toggle="dropdown"
-                        dropdown-toggle
-                        aria-expanded="true"
-                        i18n="centreon.dashboard.criticity">
-                        <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Blocker
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">
-                                <input type="checkbox" />
-                                Minor
-                            </a>
-                        </li>
-                      </ul>
-                    </div>
                 </th>
                 <th class="notes-url">
                     <span i18n="centreon.dashboard.notes_url">
@@ -206,19 +227,26 @@
                 }">
                 <tr>
                     <td class="check">
-                        <input type="checkbox" />
+                        <input
+                            ng-click="toggleService($event, state.service_id)"
+                            type="checkbox" />
                     </td>
                     <td
                         class="host-state">
                         <span
-                            ng-if="state.hostname != status[$index-1].hostname"
+                            ng-if="state.host_name != status[$index-1].host_name"
                             class="label label-host-state {{ state.host_state }}">
                             &nbsp;
                         </span>
                     </td>
                     <td class="host">
-                        <span ng-if="state.hostname != status[$index-1].hostname">
-                            {{ state.hostname }}
+                        <span ng-if="state.host_name != status[$index-1].host_name">
+                            {{ state.host_name }}
+                        </span>
+                    </td>
+                    <td class="criticity">
+                        <span ng-show="state.criticity == 'major'">
+                            {{ state.criticity }}
                         </span>
                     </td>
                     <td
@@ -229,6 +257,16 @@
                     </td>
                     <td
                         class="service-name">
+                        <span
+                            ng-if="outputs.indexOf(state.service_id) == -1"
+                            ng-click="toggleOutput($event, state.service_id)"
+                            class="glyphicon glyphicon-resize-full">
+                        </span>
+                        <span
+                            ng-if="outputs.indexOf(state.service_id) > -1"
+                            ng-click="toggleOutput($event, state.service_id)"
+                            class="glyphicon glyphicon-resize-small">
+                        </span>
                         {{ state.service_name }}
                     </td>
                     <td
@@ -244,10 +282,6 @@
                             ng-if="state.downtime =='yes'"
                             class="glyphicon glyphicon-exclamation-sign">
                         </span>
-                    </td>
-                    <td
-                        class="criticity">
-                        {{ state.criticity }}
                     </td>
                     <td
                         class="notes-url">
@@ -276,18 +310,19 @@
                         {{ state.last_hard_state | timeAgo }}
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="4">
+                <tr ng-show="outputs.indexOf(state.service_id) > -1">
+                    <td colspan="5">
                         &nbsp;
                     </td>
                     <td
                         class="output"
-                        colspan="10">
+                        colspan="9">
                         {{ state.output }}
                     </td>
                 </tr>
             </tbody>
         </table>
+
         <!-- pagination -->
         <div class="pagination col-sm-6">
             <div
@@ -309,6 +344,7 @@
             </select>
         </div>
     </div>
+
     <div
         class="panel-footer text-right"
         i18n="centreon.footer.copyright">

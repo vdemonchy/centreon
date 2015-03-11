@@ -1,75 +1,29 @@
 div.panel.panel-dashboard {
-    table {
-        thead {
-            th {
-                border-color: white;
-                color: @asbestos;
 
-                &.check {
-                    width: 40px;
-                    text-align: center;
-                }
-                &.acknowledge,
-                &.downtime,
-                &.attempts,
-                &.notes-url,
-                &.service-state,
-                &.host-state {
-                    text-align: center;
-                }
+    div.panel-body {
+
+        div.form-search {
+            div.dropdown {
+                display: inline-block;
+            }
+
+            input.form-control {
+                display: inline-block;
+                width: auto;
             }
         }
 
-        tbody {
-            border-color: white;
-            background-color: lighten(@clouds, 2%);
-            &.down {
-                background-color: lighten(@amethyst, 30%);
-            }
-            &.ack {
-                background-color: lighten(@sun-flower, 30%);
-            }
-            tr {
-                border: none;
-
-                td {
-                    border: none;
-                    font-size: 14px;
-
-                    span.label.label-host-state {
-                        .host-status();
-                    }
-                    span.label.label-service-state {
-                        .service-status();
-                    }
+        table {
+            thead {
+                th {
+                    border-color: white;
+                    color: @asbestos;
 
                     &.check {
                         width: 40px;
                         text-align: center;
                     }
-
-                    &.acknowledge {
-                        span.glyphicon {
-                            font-size: 20px;
-                            color: darken(@green-sea, 10%);
-                        }
-                    }
-                    &.downtime {
-                        span.glyphicon {
-                            font-size: 20px;
-                            color: darken(@brand-danger, 10%);
-                        }
-                    }
-
-                    &.notes-url {
-                        a {
-                            color : black;
-                        }
-                    }
-                    &.output {
-                        font-size: 12px;
-                    }
-
+                    &.criticity,
                     &.acknowledge,
                     &.downtime,
                     &.attempts,
@@ -80,6 +34,92 @@ div.panel.panel-dashboard {
                     }
                 }
             }
+
+            tbody {
+
+                border-color: white;
+                background-color: lighten(@clouds, 2%);
+
+                &.down {
+                    background-color: lighten(@amethyst, 30%);
+                }
+                &.ack {
+                    background-color: lighten(@sun-flower, 30%);
+                }
+                tr {
+                    border: none;
+
+                    td {
+                        border: none;
+                        font-size: 14px;
+                        padding: 5px 0 5px 0;
+
+                        span.label.label-host-state {
+                            .host-status();
+                        }
+
+                        &.check {
+                            width: 40px;
+                            text-align: center;
+                        }
+
+                        &.acknowledge {
+                            span.glyphicon {
+                                font-size: 20px;
+                                color: darken(@green-sea, 10%);
+                            }
+                        }
+
+                        &.service-state {
+                            span.label.label-service-state {
+                                .service-status();
+                            }
+                        }
+
+                        &.service-name {
+
+                            width: 250px;
+                            span {
+                                margin-right: 5px;
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        &.downtime {
+                            span.glyphicon {
+                                font-size: 20px;
+                                color: darken(@brand-danger, 10%);
+                            }
+                        }
+
+                        &.notes-url {
+                            a {
+                                color : black;
+                                &:hover {
+                                    color: @brand-primary;
+                                }
+                            }
+                        }
+
+                        &.output {
+                            font-size: 12px;
+                        }
+
+                        &.criticity,
+                        &.acknowledge,
+                        &.downtime,
+                        &.attempts,
+                        &.notes-url,
+                        &.service-state,
+                        &.host-state {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
         }
+
     }
 }

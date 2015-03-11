@@ -22,13 +22,21 @@ define [], ->
         '$http'
         '$scope'
         'config'
+        'states'
         (
             $log
             $http
             $scope
             config
+            states
         ) ->
             $scope.status = undefined
+            $scope.states = states
+            $scope.outputs = []
+            $scope.services = []
+            $scope.filters = {
+                host: []
+            }
             $scope.itemsPerPage = 25
             $scope.pageNumber = 1
 
@@ -40,6 +48,35 @@ define [], ->
                         $scope.all = response.data[1]
                         $scope.status =  angular.copy $scope.all
 
+            ###*
+            # @ngdoc function
+            # @name toggleService
+            # @methodOf app-dashboard-controllers.dashboardCtrl
+            # @function
+            # @param {Object} $event the event
+            # @description TODO
+            ###
+            $scope.toggleService = ($event, id) ->
+                i = $scope.services.indexOf id
+                if i > -1
+                    $scope.services.splice i,1
+                else
+                    $scope.services.push id
+
+            ###*
+            # @ngdoc function
+            # @name toggleOutput
+            # @methodOf app-dashboard-controllers.dashboardCtrl
+            # @function
+            # @param {Object} $event the event
+            # @description TODO
+            ###
+            $scope.toggleOutput = ($event, id) ->
+                i = $scope.outputs.indexOf id
+                if i > -1
+                    $scope.outputs.splice i,1
+                else
+                    $scope.outputs.push id
             ###*
             # @ngdoc function
             # @name pager

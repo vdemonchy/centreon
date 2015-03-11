@@ -3,11 +3,11 @@
     "centreon.dashboard.h2" : "Dashboard",
 
     "centreon.dashboard.host" : "Hostname",
-    "centreon.dashboard.host-state" : "State",
+    "centreon.dashboard.host-state" : "Host state",
     "centreon.dashboard.criticity" : "Criticity",
     "centreon.dashboard.service" : "Service",
     "centreon.dashboard.service-name" : "Service name",
-    "centreon.dashboard.service-state" : "State",
+    "centreon.dashboard.service-state" : "Service state",
     "centreon.dashboard.acknowledge" : "Acknowledge",
     "centreon.dashboard.downtime" : "Downtime",
     "centreon.dashboard.notes_url" : "Note",
