@@ -201,8 +201,8 @@
             <tbody
                 ng-repeat="state in status  | limitTo: itemsPerPage track by $index"
                 ng-class="{
-                    'ack'  : state.acknowledge == 'yes',
-                    'down' : state.downtime == 'yes'
+                    'down' : state.downtime == 'yes',
+                    'ack'  : state.acknowledge == 'yes'
                 }">
                 <tr>
                     <td class="check">
