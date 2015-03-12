@@ -13,6 +13,7 @@ define [
     'angular-bootstrap'
     'angular-local-storage'
     'modules/dashboard/controllers'
+    'modules/dashboard/factories'
 ],(
     angular
     routes
@@ -31,5 +32,6 @@ define [
             'ui.bootstrap.tpls'
             'LocalStorageModule'
             'app-dashboard-controllers'
+            'app-dashboard-factories'
         ]
         .config routes

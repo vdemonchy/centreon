@@ -25,16 +25,16 @@
                 ng-click="$event.stopPropagation()"
                 dropdown class="dropdown">
 
-              <button
-                class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                dropdown-toggle
-                aria-expanded="true"
-                i18n="centreon.dashboard.host-state">
+                <button
+                    class="btn btn-default dropdown-toggle"
+                    type="button"
+                    id="dropdownMenu1"
+                    data-toggle="dropdown"
+                    dropdown-toggle
+                    aria-expanded="true"
+                    i18n="centreon.dashboard.host-state">
                 <span class="caret"></span>
-              </button>
+                </button>
 
               <ul
                 class="dropdown-menu"
@@ -42,9 +42,11 @@
                 aria-labelledby="dropdownMenu1">
 
                 <li ng-repeat="state in states.host" role="presentation">
-                    <a role="menuitem" tabindex="1" href>
+                    <a
+                        ng-click="toggleFilter($event, 'host_state', state.id)"
+                        role="menuitem" href>
                         <input
-                            ng-checked="filters.host.indexOf(state.id) > -1"
+                            ng-checked="filters.host_state[state.id]"
                             type="checkbox" />
                                 {{ state.state }}
                     </a>
@@ -56,55 +58,39 @@
             <input
                 class="form-control"
                 type="text"
+                ng-model="hostfilter"
+                ng-change="filterByKeyword($event)"
                 i18n i18n-placeholder="centreon.dashboard.host" />
 
             <!-- service state dropdown -->
-            <div dropdown class="dropdown">
+            <div
+                ng-click="$event.stopPropagation()"
+                dropdown class="dropdown">
 
-              <button
-                class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                dropdown-toggle
-                aria-expanded="true"
-                i18n="centreon.dashboard.service-state">
+                <button
+                    class="btn btn-default dropdown-toggle"
+                    type="button"
+                    id="dropdownMenu1"
+                    data-toggle="dropdown"
+                    dropdown-toggle
+                    aria-expanded="true"
+                    i18n="centreon.dashboard.service-state">
                 <span class="caret"></span>
-              </button>
+                </button>
 
               <ul
                 class="dropdown-menu"
                 role="menu"
                 aria-labelledby="dropdownMenu1">
 
-                <li role="presentation">
-                    <a role="menuitem" tabindex="1" href>
-                        <input type="checkbox" />
-                        Ok
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="2" href>
-                        <input type="checkbox" />
-                        Warning
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="3" href>
-                        <input type="checkbox" />
-                        Critical
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="4" href>
-                        <input type="checkbox" />
-                        Unknown
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="5" href>
-                        <input type="checkbox" />
-                        Pending
+                <li ng-repeat="state in states.service" role="presentation">
+                    <a
+                        ng-click="toggleFilter($event, 'service_state', state.id)"
+                        role="menuitem" href>
+                        <input
+                            ng-checked="filters.service_state[state.id]"
+                            type="checkbox" />
+                            {{ state.state }}
                     </a>
                 </li>
               </ul>
@@ -114,97 +100,102 @@
             <input
                 class="form-control"
                 type="text"
+                ng-model="servicefilter"
+                ng-change="filterByKeyword($event)"
                 i18n i18n-placeholder="centreon.dashboard.service" />
 
             <!-- criticity -->
-            <div dropdown class="dropdown">
-              <button
-                class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                dropdown-toggle
-                aria-expanded="true"
-                i18n="centreon.dashboard.criticity">
+            <div
+                ng-click="$event.stopPropagation()"
+                dropdown class="dropdown">
+                <button
+                    class="btn btn-default dropdown-toggle"
+                    type="button"
+                    id="dropdownMenu1"
+                    data-toggle="dropdown"
+                    dropdown-toggle
+                    aria-expanded="true"
+                    i18n="centreon.dashboard.criticity">
                 <span class="caret"></span>
-              </button>
+                </button>
 
-              <ul
+                <ul
                 class="dropdown-menu"
                 role="menu"
                 aria-labelledby="dropdownMenu1">
 
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">
-                        <input type="checkbox" />
-                        Blocker
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">
-                        <input type="checkbox" />
-                        Minor
-                    </a>
-                </li>
-              </ul>
-        </div>
-            <!-- Poller -->
-            <div dropdown class="dropdown">
-              <button
-                class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                dropdown-toggle
-                aria-expanded="true"
-                i18n="centreon.dashboard.poller">
-                <span class="caret"></span>
-              </button>
-
-              <ul
-                class="dropdown-menu"
-                role="menu"
-                aria-labelledby="dropdownMenu1">
-
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">
-                        <input type="checkbox" />
-                        Paris
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">
-                        <input type="checkbox" />
-                        Amsterdam
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">
-                        <input type="checkbox" />
-                        New York
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">
-                        <input type="checkbox" />
-                        Sunnyvale
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">
-                        <input type="checkbox" />
-                       Hong Kong
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">
-                        <input type="checkbox" />
-                       Tokyo
-                    </a>
-                </li>
-              </ul>
+                    <li ng-repeat="state in states.criticity" role="presentation">
+                        <a
+                        ng-click="toggleFilter($event, 'criticity', state.id)"
+                        role="menuitem" href>
+                        <input
+                        ng-checked="filters.criticity[state.id]"
+                        type="checkbox" />
+                        {{ state.state }}
+                        </a>
+                    </li>
+                </ul>
             </div>
+
+            <!-- poller -->
+            <div dropdown class="dropdown">
+                <button
+                    class="btn btn-default dropdown-toggle"
+                    type="button"
+                    id="dropdownMenu1"
+                    data-toggle="dropdown"
+                    dropdown-toggle
+                    aria-expanded="true"
+                    i18n="centreon.dashboard.poller">
+                    <span class="caret"></span>
+                </button>
+
+                <ul
+                    class="dropdown-menu"
+                    role="menu"
+                    aria-labelledby="dropdownMenu1">
+
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">
+                            <input type="checkbox" />
+                            Paris
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">
+                            <input type="checkbox" />
+                            Amsterdam
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">
+                            <input type="checkbox" />
+                            New York
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">
+                            <input type="checkbox" />
+                            Sunnyvale
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">
+                            <input type="checkbox" />
+                           Hong Kong
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">
+                            <input type="checkbox" />
+                           Tokyo
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
+
         <!-- pagination -->
         <div class="pagination col-sm-6">
             <div
@@ -227,7 +218,8 @@
         </div>
 
         <table
-            class="table">
+            class="table table-responsive">
+
             <thead>
                 <th class="check">
                     <input type="checkbox" />
@@ -274,13 +266,14 @@
                     </span>
                 </th>
             </thead>
+
             <tbody
                 ng-repeat="state in status  | limitTo: itemsPerPage track by $index"
                 ng-class="{
                     'down' : state.downtime == 'yes',
                     'ack'  : state.acknowledge == 'yes'
                 }">
-                <tr>
+                <tr class="details">
                     <td class="check">
                         <input
                             ng-click="toggleService($event, state.service_id)"
@@ -365,7 +358,9 @@
                         {{ state.last_hard_state | timeAgo }}
                     </td>
                 </tr>
-                <tr ng-show="outputs.indexOf(state.service_id) > -1">
+                <tr
+                    class="output"
+                    ng-show="outputs.indexOf(state.service_id) > -1">
                     <td colspan="5">
                         &nbsp;
                     </td>
@@ -376,6 +371,7 @@
                     </td>
                 </tr>
             </tbody>
+
         </table>
 
         <!-- pagination -->
